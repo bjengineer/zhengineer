@@ -9,6 +9,7 @@ import java.nio.charset.Charset;
 import org.apache.mina.core.service.IoAcceptor;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
+import org.apache.mina.filter.codec.textline.LineDelimiter;
 import org.apache.mina.filter.codec.textline.TextLineCodecFactory;
 import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
@@ -16,7 +17,7 @@ import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 
 public class MinaTimeServer {    
     // 服务器监听端口    
-    private static final int PORT = 8091;    
+    private static final int PORT = 8092;    
   
     /**   
      *    
@@ -35,8 +36,18 @@ public class MinaTimeServer {
         // 设置Filter链     
         acceptor.getFilterChain().addLast("logger", new LoggingFilter());    
         // 协议解析，采用mina现成的UTF-8字符串处理方式    
-        acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter
-        		(new TextLineCodecFactory(Charset.forName("UTF-8")))); 
+//        acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter
+//        		(new TextLineCodecFactory(Charset.forName("UTF-8")))); 
+        
+        acceptor.getFilterChain().addLast("codec",  
+        		new ProtocolCodecFilter(  
+        		new TextLineCodecFactory(  
+        		Charset.forName("UTF-8"),  
+        		LineDelimiter.WINDOWS.getValue(),  
+        		LineDelimiter. WINDOWS.getValue()  
+        		)  
+        		)  
+        		);
         
   
         // 设置消息处理类（创建、关闭Session，可读可写等等，继承自接口IoHandler）    
