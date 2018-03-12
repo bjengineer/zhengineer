@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="MinaClient"
+  id="myeclipse.1520588705702"
+  context-root="/MinaClient"
+  j2ee-spec="6.0"
+  archive="MinaClient.war">
+  <attributes>
+    <attribute name="webrootdir" value="&lt;prjroot&gt;" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ExamMina"
+  id="myeclipse.1520588724405"
+  context-root="/ExamMina"
+  j2ee-spec="6.0"
+  archive="ExamMina.war">
+  <attributes>
+    <attribute name="webrootdir" value="&lt;prjroot&gt;" />
+  </attributes>
+</project-module>
+
